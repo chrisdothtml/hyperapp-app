@@ -5,7 +5,7 @@ import uglify from 'rollup-plugin-uglify'
 function handleEnv (config) {
   if (process.env.TARGET === 'production') {
     config.output.file = 'dist/app.min.js'
-    config.plugins[1] = postcss({ extract: true })
+    config.plugins[1] = postcss({ extract: true, minimize: true })
     config.plugins.push(uglify())
   }
 
