@@ -1,9 +1,11 @@
 import nodeResolve from 'rollup-plugin-node-resolve'
+import postcss from 'rollup-plugin-postcss'
 import uglify from 'rollup-plugin-uglify'
 
 function handleEnv (config) {
   if (process.env.TARGET === 'production') {
     config.output.file = 'dist/app.min.js'
+    config.plugins[1] = postcss({ extract: true })
     config.plugins.push(uglify())
   }
 
@@ -17,6 +19,7 @@ export default handleEnv({
     format: 'iife'
   },
   plugins: [
-    nodeResolve()
+    nodeResolve(),
+    postcss()
   ]
 })
