@@ -3,12 +3,14 @@
   "scripts": {
     "build": "rollup -c rollup.config/prod.js",
     "dev": "opn demo/index.html && rollup -c rollup.config/dev.js -w",
+    "hygen": "hygen",
     "test": "rollup -c rollup.config/test.js && jest .temp/test/tests.js"
   },
   "dependencies": {
     "hyperapp": "^1.1.2"
   },
   "devDependencies": {
+    "hygen": "^1.4.9",
     "jest": "^22.3.0",
     "opn-cli": "^3.1.0",
     "rollup": "^0.56.2",
